@@ -6,22 +6,22 @@
 #                                                 #
 #    Makefile                                     #
 #    By: omanar <omanar@student.1337.ma>          #
-#    Created: 2022/12/17 12:28 PM by omanar 	  #
+#    Created: 2022/12/17 13:00 PM by omanar 	  #
 #                                                 #
 #*************************************************#
 
-NAME	=	megaphone
+NAME	=	PhoneBook
 RM		=	rm -f
 CC		=	c++
 FLAGS	=	-Wall -Wextra -Werror -std=c++98
-SRCS	=	megaphone.cpp
+SRCS	=	srcs/main.cpp srcs/PhoneBook.cpp srcs/Contact.cpp
 
 all: $(NAME)
 
 $(NAME): $(SRCS)
 	@echo "\n\033[0;36m   | Compiling...\033[0m"
 	@$(CC) $(FLAGS) $(SRCS) -o $(NAME)
-	@echo "\033[1;32m   | Megaphone has been compiled!\033[0m\n"
+	@echo "\033[1;32m   | PhoneBook has been compiled!\033[0m\n"
 
 clean:
 	@$(RM) $(NAME)
