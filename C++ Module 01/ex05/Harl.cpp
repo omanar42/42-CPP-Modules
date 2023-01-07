@@ -6,22 +6,26 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 00:16:21 by omanar            #+#    #+#             */
-/*   Updated: 2023/01/07 15:48:00 by omanar           ###   ########.fr       */
+/*   Updated: 2023/01/07 16:24:19 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
 void	Harl::debug( void ) {
-	std::cout << "  | I love having extra time to work on my hobbies. I really do!" << std::endl;
+	std::cout << "  | I love having extra time to work on my hobbies." << std::endl
+	<< "  | I really do!" << std::endl;
 }
 
 void	Harl::info( void ) {
-	std::cout << "  | I cannot believe I have to work overtime again. You didn't give me enough time to work on my hobbies! If you did, I wouldn't be asking for more!" << std::endl;
+	std::cout << "  | I cannot believe I have to work overtime again." << std::endl
+	<< "  | You didn't give me enough time to work on my hobbies!" << std::endl
+	<< "  | If you did, I wouldn't be asking for more!" << std::endl;
 }
 
 void	Harl::warning( void ) {
-	std::cout << "  | I think I deserve to have some extra BlackHole for free. I've been a model student for year, while you decreasing day by day." << std::endl;
+	std::cout << "  | I think I deserve to have some extra BlackHole for free." << std::endl
+	<< "  | I've been a model student for year, while you decreasing day by day." << std::endl;
 }
 
 void	Harl::error( void ) {
