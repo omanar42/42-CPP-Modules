@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 19:32:04 by omanar            #+#    #+#             */
-/*   Updated: 2023/02/19 20:52:40 by omanar           ###   ########.fr       */
+/*   Updated: 2023/02/20 01:44:38 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 FragTrap::FragTrap() : ClapTrap() {
 	std::cout << "FragTrap Default constructor called" << std::endl;
-	this->HitPoints = 100;
-	this->EnergyPoints = 100;
-	this->AttackDamage = 30;
+	this->HitPoints = getDefault("HitPoints");
+	this->EnergyPoints = getDefault("EnergyPoints");
+	this->AttackDamage = getDefault("AttackDamage");
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name) {
 	std::cout << "FragTrap " << this->Name << " is created!" << std::endl;
-	this->HitPoints = 100;
-	this->EnergyPoints = 100;
-	this->AttackDamage = 30;
+	this->HitPoints = getDefault("HitPoints");
+	this->EnergyPoints = getDefault("EnergyPoints");
+	this->AttackDamage = getDefault("AttackDamage");
 }
 
 FragTrap::FragTrap(FragTrap const & src) {
@@ -46,4 +46,15 @@ FragTrap & FragTrap::operator=(FragTrap const & src) {
 
 void	FragTrap::highFivesGuys() {
 	std::cout << "FragTrap " << this->Name << " is giving high fives!" << std::endl;
+}
+
+unsigned int	FragTrap::getDefault(std::string str) {
+	if (str == "HitPoints")
+		return 100;
+	else if (str == "EnergyPoints")
+		return 100;
+	else if (str == "AttackDamage")
+		return 30;
+	else
+		return 0;
 }

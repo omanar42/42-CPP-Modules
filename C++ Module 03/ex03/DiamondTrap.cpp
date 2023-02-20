@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 19:40:06 by omanar            #+#    #+#             */
-/*   Updated: 2023/02/19 23:47:20 by omanar           ###   ########.fr       */
+/*   Updated: 2023/02/20 01:47:27 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ DiamondTrap::DiamondTrap(void) : ClapTrap(), ScavTrap(), FragTrap() {
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name) {
 	std::cout << "The monster " << name << " is born!" << std::endl;
 	this->Name = name;
-	this->HitPoints = 100;
-	this->EnergyPoints = 50;
-	this->AttackDamage = 30;
+	this->HitPoints = FragTrap::getDefault("HitPoints");
+	this->EnergyPoints = ScavTrap::getDefault("EnergyPoints");
+	this->AttackDamage = FragTrap::getDefault("AttackDamage");
 }
 
 DiamondTrap::DiamondTrap(DiamondTrap const & src) {

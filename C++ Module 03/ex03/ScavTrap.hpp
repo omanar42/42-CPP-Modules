@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 18:16:53 by omanar            #+#    #+#             */
-/*   Updated: 2023/02/19 20:32:53 by omanar           ###   ########.fr       */
+/*   Updated: 2023/02/20 01:42:18 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ class ScavTrap : virtual public ClapTrap {
 
 		void	attack(const std::string& target);
 		void	guardGate();
+
+		unsigned int	getDefault(std::string str);
 };
 
 #endif

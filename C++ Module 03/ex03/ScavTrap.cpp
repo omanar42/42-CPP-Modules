@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 18:16:51 by omanar            #+#    #+#             */
-/*   Updated: 2023/02/19 20:52:47 by omanar           ###   ########.fr       */
+/*   Updated: 2023/02/20 01:43:39 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 ScavTrap::ScavTrap() : ClapTrap() {
 	std::cout << "ScavTrap Default constructor called" << std::endl;
-	this->HitPoints = 100;
-	this->EnergyPoints = 50;
-	this->AttackDamage = 20;
+	this->HitPoints = getDefault("HitPoints");
+	this->EnergyPoints = getDefault("EnergyPoints");
+	this->AttackDamage = getDefault("AttackDamage");
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
 	std::cout << "ScavTrap " << this->Name << " is created!" << std::endl;
-	this->HitPoints = 100;
-	this->EnergyPoints = 50;
-	this->AttackDamage = 20;
+	this->HitPoints = getDefault("HitPoints");
+	this->EnergyPoints = getDefault("EnergyPoints");
+	this->AttackDamage = getDefault("AttackDamage");
 }
 
 ScavTrap::ScavTrap(ScavTrap const & src) {
@@ -59,4 +59,15 @@ void	ScavTrap::attack(const std::string& target) {
 
 void	ScavTrap::guardGate() {
 	std::cout << "ScavTrap " << this->Name << " is now in Gate keeper mode!" << std::endl;
+}
+
+unsigned int	ScavTrap::getDefault(std::string str) {
+	if (str == "HitPoints")
+		return 100;
+	else if (str == "EnergyPoints")
+		return 50;
+	else if (str == "AttackDamage")
+		return 20;
+	else
+		return 0;
 }

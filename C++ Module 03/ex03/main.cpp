@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 15:46:06 by omanar            #+#    #+#             */
-/*   Updated: 2023/02/19 23:46:29 by omanar           ###   ########.fr       */
+/*   Updated: 2023/02/20 01:50:33 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ int main() {
 	Diamond.guardGate();
 	Diamond.highFivesGuys();
 	Diamond.whoAmI();
-	
+
 	return 0;
 }

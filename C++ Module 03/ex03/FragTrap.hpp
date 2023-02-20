@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 19:22:29 by omanar            #+#    #+#             */
-/*   Updated: 2023/02/19 20:32:51 by omanar           ###   ########.fr       */
+/*   Updated: 2023/02/20 01:43:48 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ class FragTrap : virtual public ClapTrap {
 		FragTrap & operator=(FragTrap const & rhs);
 
 		void	highFivesGuys(void);
+		void	setDefaultValues();
+
+		unsigned int	getDefault(std::string str);
 };
 
 #endif
