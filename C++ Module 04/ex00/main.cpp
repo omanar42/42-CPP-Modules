@@ -6,12 +6,13 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 00:52:00 by omanar            #+#    #+#             */
-/*   Updated: 2023/02/20 02:21:14 by omanar           ###   ########.fr       */
+/*   Updated: 2023/02/20 03:08:58 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "WrongCat.hpp"
 
 int	main()
 {
@@ -29,6 +30,13 @@ int	main()
 	delete meta;
 	delete j;
 	delete i;
+
+	std::cout << "------------------------" << std::endl;
+
+	const WrongAnimal* wrongMeta = new WrongCat();
+	std::cout << wrongMeta->getType() << " " << std::endl;
+	wrongMeta->makeSound();
+	delete wrongMeta;
 
 	return 0;
 }
