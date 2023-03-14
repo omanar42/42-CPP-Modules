@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 14:46:03 by omanar            #+#    #+#             */
-/*   Updated: 2022/12/25 14:50:52 by omanar           ###   ########.fr       */
+/*   Updated: 2023/03/14 19:54:58 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Weapon {
 		std::string type;
 	public:
 		Weapon(std::string type);
-		std::string const &getType();
+		std::string const &getType() const;
 		void setType(std::string type);
 };
 

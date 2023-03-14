@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:56:49 by omanar            #+#    #+#             */
-/*   Updated: 2022/12/25 14:12:46 by omanar           ###   ########.fr       */
+/*   Updated: 2023/03/13 02:12:13 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main() {
 	std::string*	stringPTR = &string;
 	std::string&	stringREF = string;
 
-	std::cout << "Memory addresses" << std::endl;
+	std::cout << "Memory Addresses" << std::endl;
 	std::cout << "  | string    : " << &string << std::endl;
 	std::cout << "  | stringPTR : " << stringPTR << std::endl;
 	std::cout << "  | stringREF : " << &stringREF << std::endl;

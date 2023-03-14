@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 14:48:46 by omanar            #+#    #+#             */
-/*   Updated: 2022/12/25 14:51:43 by omanar           ###   ########.fr       */
+/*   Updated: 2023/03/14 19:55:33 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Weapon::Weapon(std::string type) : type(type) { }
 
-std::string const &Weapon::getType() {
+std::string const &Weapon::getType() const {
 	return (this->type);
 }
 

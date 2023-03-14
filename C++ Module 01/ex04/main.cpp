@@ -6,23 +6,12 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 08:30:02 by omanar            #+#    #+#             */
-/*   Updated: 2022/12/26 11:48:28 by omanar           ###   ########.fr       */
+/*   Updated: 2023/03/14 19:40:16 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fstream>
 #include <iostream>
-
-void	gatvalue(std::string message, std::string *value) {
-	do {
-		std::cout << message;
-		getline(std::cin, *value);
-		if (std::cin.fail() || !std::cin.good()) {
-			std::cerr << "\n   | Error: The input stream is closed, The program will be exited!" << std::endl;
-			exit (1);
-		}
-	} while (value->empty());
-}
 
 std::string	FindAndReplace(std::string line, std::string s1, std::string s2) {
 	size_t pos = 0;
@@ -36,22 +25,27 @@ std::string	FindAndReplace(std::string line, std::string s1, std::string s2) {
 	return (result + line);
 }
 
-int	main() {
-	std::string	filename;
-	std::string	s1;
-	std::string	s2;
+int	main(int ac, char **av) {
+	if (ac != 4) {
+		std::cerr << "   | Error: Invalid number of arguments!" << std::endl;
+		return (1);
+	}
+
+	std::string	filename = av[1];
+	std::string	s1 = av[2];
+	std::string	s2 = av[3];
 	std::string	line;
 	std::string	content;
-
-	gatvalue("Enter the filename: ", &filename);
 	std::ifstream	infile(filename);
+
 	if (!infile.is_open()) {
 		std::cerr << "   | Error: Unable to open file " << filename << std::endl;
 		return (1);
 	}
-	gatvalue("Enter the string to replace: ", &s1);
-	gatvalue("Enter the string to replace with: ", &s2);
-
+	if (s1.empty()) {
+		std::cerr << "   | Warning: First string cannot be empty!" << std::endl;
+		return (1);
+	}
 	while (getline(infile, line)) {
 		line = FindAndReplace(line, s1, s2);
 		content += line + "\n";

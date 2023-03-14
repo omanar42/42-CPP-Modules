@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 15:13:04 by omanar            #+#    #+#             */
-/*   Updated: 2022/12/26 08:18:01 by omanar           ###   ########.fr       */
+/*   Updated: 2023/03/14 16:57:33 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 HumanB::HumanB(std::string name) : name(name) { }
 
 void HumanB::attack(void) {
+	if (this->weapon == NULL)
+		std::cout << "  | " << this->name << " attacks with his fists" << std::endl;
+	else
 	std::cout << "  | " << this->name << " attacks with their " << this->weapon->getType() << std::endl;
 }
 
