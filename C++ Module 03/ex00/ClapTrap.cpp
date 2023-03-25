@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 15:39:51 by omanar            #+#    #+#             */
-/*   Updated: 2023/02/19 19:17:12 by omanar           ###   ########.fr       */
+/*   Updated: 2023/03/25 20:41:38 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
 		std::cout << "ClapTrap " << this->Name << " is already dead!" << std::endl;
 		return;
 	}
-	if (amount == 0) {
+	if ((int)amount <= 0) {
 		std::cout << "ClapTrap " << this->Name << " takes no damage!" << std::endl;
 	} else if (amount >= this->HitPoints) {
 		this->HitPoints = 0;
@@ -73,6 +73,10 @@ void ClapTrap::beRepaired(unsigned int amount) {
 	}
 	if (this->EnergyPoints == 0) {
 		std::cout << "ClapTrap " << this->Name << " has no energy points left!" << std::endl;
+		return;
+	}
+	if ((int)amount <= 0) {
+		std::cout << "ClapTrap " << this->Name << " gets no hit points back!" << std::endl;
 		return;
 	}
 	this->HitPoints += amount;
@@ -94,8 +98,4 @@ unsigned int	ClapTrap::getEnergyPoints() {
 
 unsigned int	ClapTrap::getAttackDamage() {
 	return this->AttackDamage;
-}
-
-void			ClapTrap::setAttackDamage(unsigned int amount) {
-	this->AttackDamage = amount;
 }

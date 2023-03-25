@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 18:16:51 by omanar            #+#    #+#             */
-/*   Updated: 2023/02/20 01:43:39 by omanar           ###   ########.fr       */
+/*   Updated: 2023/03/25 05:53:51 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 
 ScavTrap::ScavTrap() : ClapTrap() {
 	std::cout << "ScavTrap Default constructor called" << std::endl;
-	this->HitPoints = getDefault("HitPoints");
-	this->EnergyPoints = getDefault("EnergyPoints");
-	this->AttackDamage = getDefault("AttackDamage");
+	this->HitPoints = 100;
+	this->EnergyPoints = 50;
+	this->AttackDamage = 20;
+	setDefault();
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
 	std::cout << "ScavTrap " << this->Name << " is created!" << std::endl;
-	this->HitPoints = getDefault("HitPoints");
-	this->EnergyPoints = getDefault("EnergyPoints");
-	this->AttackDamage = getDefault("AttackDamage");
+	this->HitPoints = 100;
+	this->EnergyPoints = 50;
+	this->AttackDamage = 20;
+	setDefault();
 }
 
 ScavTrap::ScavTrap(ScavTrap const & src) {
@@ -63,11 +65,17 @@ void	ScavTrap::guardGate() {
 
 unsigned int	ScavTrap::getDefault(std::string str) {
 	if (str == "HitPoints")
-		return 100;
+		return this->defaultHitPoints;
 	else if (str == "EnergyPoints")
-		return 50;
+		return this->defaultEnergyPoints;
 	else if (str == "AttackDamage")
-		return 20;
+		return this->defaultAttackDamage;
 	else
 		return 0;
+}
+
+void	ScavTrap::setDefault() {
+	this->defaultHitPoints = this->HitPoints;
+	this->defaultEnergyPoints = this->EnergyPoints;
+	this->defaultAttackDamage = this->AttackDamage;
 }

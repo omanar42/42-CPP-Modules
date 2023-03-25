@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 15:27:33 by omanar            #+#    #+#             */
-/*   Updated: 2023/02/19 19:17:16 by omanar           ###   ########.fr       */
+/*   Updated: 2023/03/25 20:41:44 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ class ClapTrap {
 		unsigned int	getHitPoints();
 		unsigned int	getEnergyPoints();
 		unsigned int	getAttackDamage();
-		void			setAttackDamage(unsigned int amount);
 };
 
 #endif
