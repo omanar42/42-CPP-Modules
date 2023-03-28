@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:47:35 by omanar            #+#    #+#             */
-/*   Updated: 2023/02/20 17:47:44 by omanar           ###   ########.fr       */
+/*   Updated: 2023/03/28 20:38:21 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ class Cure : public AMateria
 	public:
 		Cure();
 		Cure(Cure const & src);
-		virtual ~Cure();
+		~Cure();
 
 		Cure & operator=(Cure const & other);
 
-		virtual AMateria* clone() const;
-		virtual void use(ICharacter& target);
+		AMateria* clone() const;
+		void use(ICharacter& target);
 };
 
 #endif

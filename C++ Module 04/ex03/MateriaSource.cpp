@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:48:43 by omanar            #+#    #+#             */
-/*   Updated: 2023/02/20 20:10:43 by omanar           ###   ########.fr       */
+/*   Updated: 2023/03/28 20:55:33 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,9 @@ void MateriaSource::learnMateria(AMateria* m) {
 
 AMateria* MateriaSource::createMateria(std::string const & type) {
 	for (int i = 0; i < 4; i++) {
-		if (this->inventory[i] != NULL && this->inventory[i]->getType() == type)
-			return (this->inventory[i]->clone());
+		if (this->inventory[i] != NULL)
+			if (this->inventory[i]->getType() == type)
+				return (this->inventory[i]->clone());
 	}
 	return (NULL);
 }

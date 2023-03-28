@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:46:39 by omanar            #+#    #+#             */
-/*   Updated: 2023/02/20 17:47:12 by omanar           ###   ########.fr       */
+/*   Updated: 2023/03/28 20:40:50 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ class Ice : public AMateria
 	public:
 		Ice();
 		Ice(Ice const & src);
-		virtual ~Ice();
+		~Ice();
 
 		Ice & operator=(Ice const & other);
 
-		virtual AMateria* clone() const;
-		virtual void use(ICharacter& target);
+		AMateria* clone() const;
+		void use(ICharacter& target);
 };
 
 #endif
