@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:50:57 by omanar            #+#    #+#             */
-/*   Updated: 2023/03/28 20:45:22 by omanar           ###   ########.fr       */
+/*   Updated: 2023/04/09 20:51:30 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ Character::Character(std::string const & name) : name(name) {
 }
 
 Character::Character(Character const & src) {
+	for (int i = 0; i < 4; i++)
+		this->inventory[i] = NULL;
 	*this = src;
 }
 

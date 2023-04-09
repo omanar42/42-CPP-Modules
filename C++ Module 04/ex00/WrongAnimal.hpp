@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 03:00:44 by omanar            #+#    #+#             */
-/*   Updated: 2023/03/27 20:23:10 by omanar           ###   ########.fr       */
+/*   Updated: 2023/04/09 20:32:52 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class WrongAnimal {
 	public:
 		WrongAnimal(void);
 		WrongAnimal(WrongAnimal const & src);
-		virtual ~WrongAnimal(void);
+		~WrongAnimal(void);
 		WrongAnimal & operator=(WrongAnimal const & other);
 
 		std::string	getType(void) const;

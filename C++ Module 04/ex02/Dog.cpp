@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 01:19:17 by omanar            #+#    #+#             */
-/*   Updated: 2023/02/20 03:12:11 by omanar           ###   ########.fr       */
+/*   Updated: 2023/04/09 20:35:49 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ Dog::Dog(void) {
 
 Dog::Dog(Dog const & src) {
 	std::cout << "Dog created" << std::endl;
+	this->brain = new Brain();
 	*this = src;
 }
 

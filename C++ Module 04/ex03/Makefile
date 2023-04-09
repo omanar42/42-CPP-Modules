@@ -13,14 +13,14 @@
 NAME	=	Interface
 RM		=	rm -f
 CC		=	c++
-FLAGS	=	-Wall -Wextra -Werror -std=c++98
+FLAGS	=	-Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
 SRCS	=	main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 
 all: $(NAME)
 
 $(NAME): $(SRCS)
 	@echo "\n\033[0;36m   | Compiling...\033[0m"
-	@$(CC)  $(SRCS) -o $(NAME)
+	@$(CC) $(FLAGS) $(SRCS) -o $(NAME)
 	@echo "\033[1;32m   | Interface has been compiled!\033[0m\n"
 
 clean:

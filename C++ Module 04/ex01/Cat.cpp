@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 01:22:11 by omanar            #+#    #+#             */
-/*   Updated: 2023/02/20 03:11:44 by omanar           ###   ########.fr       */
+/*   Updated: 2023/04/09 20:33:53 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ Cat::Cat(void) {
 
 Cat::Cat(Cat const & src) {
 	std::cout << "Cat created" << std::endl;
+	this->brain = new Brain();
 	*this = src;
 }
 

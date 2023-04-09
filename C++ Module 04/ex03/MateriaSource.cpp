@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:48:43 by omanar            #+#    #+#             */
-/*   Updated: 2023/03/28 20:55:33 by omanar           ###   ########.fr       */
+/*   Updated: 2023/04/09 21:14:47 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ MateriaSource::MateriaSource() {
 }
 
 MateriaSource::MateriaSource(MateriaSource const & src) {
+	for (int i = 0; i < 4; i++)
+		this->inventory[i] = NULL;
 	*this = src;
 }
 
@@ -29,8 +31,10 @@ MateriaSource::~MateriaSource() {
 MateriaSource & MateriaSource::operator=(MateriaSource const & other) {
 	for (int i = 0; i < 4; i++)
 		delete this->inventory[i];
-	for (int i = 0; i < 4; i++)
-		this->inventory[i] = other.inventory[i]->clone();
+	for (int i = 0; i < 4; i++) {
+		if (other.inventory[i] != NULL)
+			this->inventory[i] = other.inventory[i]->clone();
+	}
 	return (*this);
 }
 

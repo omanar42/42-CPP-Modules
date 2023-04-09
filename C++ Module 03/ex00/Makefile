@@ -20,7 +20,7 @@ all: $(NAME)
 
 $(NAME): $(SRCS)
 	@echo "\n\033[0;36m   | Compiling...\033[0m"
-	@$(CC)  $(SRCS) -o $(NAME)
+	@$(CC) $(FLAGS) $(SRCS) -o $(NAME)
 	@echo "\033[1;32m   | ClapTrap has been compiled!\033[0m\n"
 
 clean:
