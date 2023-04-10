@@ -13,7 +13,7 @@
 NAME	=	Interface
 RM		=	rm -f
 CC		=	c++
-FLAGS	=	-Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
+FLAGS	=	-Wall -Wextra -Werror -std=c++98
 SRCS	=	main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 
 all: $(NAME)
