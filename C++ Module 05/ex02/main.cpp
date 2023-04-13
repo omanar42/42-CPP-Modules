@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 07:46:07 by omanar            #+#    #+#             */
-/*   Updated: 2023/04/13 18:40:39 by omanar           ###   ########.fr       */
+/*   Updated: 2023/04/13 21:29:30 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int	main() {
 	try {
-		Bureaucrat	president("President", 0);
+		Bureaucrat	president("President", 1);
 
 		ShrubberyCreationForm shrubbery("home");
 		RobotomyRequestForm		robotomy("Bender");
