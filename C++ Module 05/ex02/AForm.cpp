@@ -16,25 +16,16 @@ AForm::AForm() : name("none"), isSigned(false), gradeToSign(150), gradeToExecute
 
 AForm::AForm(std::string const &name, int gradeToSign, int gradeToExecute) : name(name), isSigned(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute) {
 	if (gradeToSign < 1)
-		throw AForm::GradeTooHighException();
+		throw GradeTooHighException();
 	if (gradeToSign > 150)
-		throw AForm::GradeTooLowException();
+		throw GradeTooLowException();
 	if (gradeToExecute < 1)
-		throw AForm::GradeTooHighException();
+		throw GradeTooHighException();
 	if (gradeToExecute > 150)
-		throw AForm::GradeTooLowException();
+		throw GradeTooLowException();
 }
 
-AForm::AForm(AForm const &src) : name(src.name), isSigned(src.isSigned), gradeToSign(src.gradeToSign), gradeToExecute(src.gradeToExecute) {
-	if (gradeToSign < 1)
-		throw AForm::GradeTooHighException();
-	if (gradeToSign > 150)
-		throw AForm::GradeTooLowException();
-	if (gradeToExecute < 1)
-		throw AForm::GradeTooHighException();
-	if (gradeToExecute > 150)
-		throw AForm::GradeTooLowException();
-}
+AForm::AForm(AForm const &src) : name(src.name), isSigned(src.isSigned), gradeToSign(src.gradeToSign), gradeToExecute(src.gradeToExecute) {}
 
 AForm::~AForm() {}
 
@@ -70,7 +61,7 @@ void	AForm::beSigned(Bureaucrat const &bureaucrat)
 	if (bureaucrat.getGrade() <= this->gradeToSign)
 		this->isSigned = true;
 	else
-		throw AForm::GradeTooLowException();
+		throw GradeTooLowException();
 }
 
 const char *AForm::GradeTooHighException::what() const throw()
@@ -88,6 +79,13 @@ const char *AForm::FormNotSignedException::what() const throw()
 	return ("Form is not signed");
 }
 
+void	AForm::execute(Bureaucrat const &executor) const
+{
+	if (this->getIsSigned() == false)
+		throw FormNotSignedException();
+	else if (executor.getGrade() > this->getGradeToExecute())
+		throw GradeTooLowException();
+}
 std::ostream &operator<<(std::ostream &out, AForm const &obj)
 {
 	out << obj.getName() << ", Form grade to sign: " << obj.getGradeToSign() << ", Form grade to execute: " << obj.getGradeToExecute() << ", Form is signed: " << obj.getIsSigned();

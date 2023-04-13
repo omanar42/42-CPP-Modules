@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 18:09:21 by omanar            #+#    #+#             */
-/*   Updated: 2023/04/13 15:59:31 by omanar           ###   ########.fr       */
+/*   Updated: 2023/04/13 18:31:26 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,10 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &o
 
 void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
-	if (this->getIsSigned() == false)
-		throw FormNotSignedException();
-	else if (executor.getGrade() > this->getGradeToExecute())
-		throw GradeTooLowException();
-	else {
-		std::cout << "   | Bzzz Bzzz Bzzz... " << std::endl;
-		srand(time(NULL));
-		if (rand() % 2)
-			std::cout << "   | " << this->target << " has been robotomized successfully!" << std::endl;
-		else
-			std::cout << "   | Robotomy of " << this->target << " has failed!" << std::endl;
-	}
+	this->AForm::execute(executor);
+	std::cout << "   | Bzzz Bzzz Bzzz... " << std::endl;
+	if (time(NULL) % 2)
+		std::cout << "   | " << this->target << " has been robotomized successfully!" << std::endl;
+	else
+		std::cout << "   | Robotomy of " << this->target << " has failed!" << std::endl;
 }

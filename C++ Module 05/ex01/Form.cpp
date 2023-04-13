@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 08:05:54 by omanar            #+#    #+#             */
-/*   Updated: 2023/04/10 08:17:15 by omanar           ###   ########.fr       */
+/*   Updated: 2023/04/13 20:30:46 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,16 @@ Form::Form() : name("none"), isSigned(false), gradeToSign(150), gradeToExecute(1
 
 Form::Form(std::string const &name, int gradeToSign, int gradeToExecute) : name(name), isSigned(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute) {
 	if (gradeToSign < 1)
-		throw Form::GradeTooHighException();
+		throw GradeTooHighException();
 	if (gradeToSign > 150)
-		throw Form::GradeTooLowException();
+		throw GradeTooLowException();
 	if (gradeToExecute < 1)
-		throw Form::GradeTooHighException();
+		throw GradeTooHighException();
 	if (gradeToExecute > 150)
-		throw Form::GradeTooLowException();
+		throw GradeTooLowException();
 }
 
-Form::Form(Form const &src) : name(src.name), isSigned(src.isSigned), gradeToSign(src.gradeToSign), gradeToExecute(src.gradeToExecute) {
-	if (gradeToSign < 1)
-		throw Form::GradeTooHighException();
-	if (gradeToSign > 150)
-		throw Form::GradeTooLowException();
-	if (gradeToExecute < 1)
-		throw Form::GradeTooHighException();
-	if (gradeToExecute > 150)
-		throw Form::GradeTooLowException();
-}
+Form::Form(Form const &src) : name(src.name), isSigned(false), gradeToSign(src.gradeToSign), gradeToExecute(src.gradeToExecute) {}
 
 Form::~Form() {}
 
@@ -70,7 +61,7 @@ void	Form::beSigned(Bureaucrat const &bureaucrat)
 	if (bureaucrat.getGrade() <= this->gradeToSign)
 		this->isSigned = true;
 	else
-		throw Form::GradeTooLowException();
+		throw GradeTooLowException();
 }
 
 const char *Form::GradeTooHighException::what() const throw()
