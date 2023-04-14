@@ -90,6 +90,10 @@ const char *AForm::FormNotSignedException::what() const throw()
 
 std::ostream &operator<<(std::ostream &out, AForm const &obj)
 {
-	out << obj.getName() << ", Form grade to sign: " << obj.getGradeToSign() << ", Form grade to execute: " << obj.getGradeToExecute() << ", Form is signed: " << obj.getIsSigned();
+	out << obj.getName() << ":\n   | Form grade to sign: " << obj.getGradeToSign() << "\n   | Form grade to execute: " << obj.getGradeToExecute() << std::endl;
+	if (obj.getIsSigned())
+		out << "   | Form is signed" << std::endl;
+	else
+		out << "   | Form is not signed" << std::endl; 
 	return (out);
 }
