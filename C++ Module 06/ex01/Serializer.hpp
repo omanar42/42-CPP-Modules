@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 21:28:39 by omanar            #+#    #+#             */
-/*   Updated: 2023/04/15 21:33:29 by omanar           ###   ########.fr       */
+/*   Updated: 2023/04/17 04:41:47 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ struct Data {
 
 class Serializer
 {
-	public:
+	private:
 		Serializer();
+	public:
 		~Serializer();
 		Serializer(Serializer const & src);
 		Serializer & operator=(Serializer const & obj);
