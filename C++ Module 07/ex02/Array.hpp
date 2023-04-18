@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 00:24:58 by omanar            #+#    #+#             */
-/*   Updated: 2023/04/17 01:26:06 by omanar           ###   ########.fr       */
+/*   Updated: 2023/04/18 21:37:25 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,12 @@ class Array {
 		}
 
 		T &operator[](unsigned int i) {
+			if (i >= _size)
+				throw std::exception();
+			return arr[i];
+		}
+
+		T const& operator[](unsigned int i) const {
 			if (i >= _size)
 				throw std::exception();
 			return arr[i];
