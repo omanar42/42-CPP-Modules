@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 13:03:28 by omanar            #+#    #+#             */
-/*   Updated: 2022/12/20 12:06:22 by omanar           ###   ########.fr       */
+/*   Updated: 2023/05/13 17:58:00 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iomanip>
 #include <iostream>
+#include <stdlib.h>
 #include "Contact.hpp"
 
 class PhoneBook {

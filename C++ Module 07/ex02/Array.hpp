@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 00:24:58 by omanar            #+#    #+#             */
-/*   Updated: 2023/04/18 21:37:25 by omanar           ###   ########.fr       */
+/*   Updated: 2023/05/13 18:28:03 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Array {
 		T *arr;
 		unsigned int _size;
 	public:
-		Array() : arr(nullptr), _size(0) {}
+		Array() : arr(new T[0]), _size(0) {}
 		Array(unsigned int n) : arr(new T[n]), _size(n) {
 			for (unsigned int i = 0; i < _size; i++)
 				arr[i] = T();

@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:47:13 by omanar            #+#    #+#             */
-/*   Updated: 2023/04/09 21:19:09 by omanar           ###   ########.fr       */
+/*   Updated: 2023/05/13 18:18:42 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Ice::Ice() : AMateria("ice") {}
 
-Ice::Ice(Ice const & src) {
+Ice::Ice(Ice const & src) : AMateria("ice") {
 	*this = src;
 }
 

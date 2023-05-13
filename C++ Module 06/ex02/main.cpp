@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 21:50:39 by omanar            #+#    #+#             */
-/*   Updated: 2023/04/15 22:22:01 by omanar           ###   ########.fr       */
+/*   Updated: 2023/05/13 18:26:33 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #include "A.hpp"
 #include "B.hpp"
 #include "C.hpp"
+#include <iostream>
+#include <exception>
+#include <typeinfo>
 
 Base * generate(void) {
 	int i = time(NULL) % 3;

@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 03:03:01 by omanar            #+#    #+#             */
-/*   Updated: 2023/02/20 03:03:24 by omanar           ###   ########.fr       */
+/*   Updated: 2023/05/13 18:16:16 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ WrongCat::WrongCat(void) {
 	this->type = "WrongCat";
 }
 
-WrongCat::WrongCat(WrongCat const & src) {
+WrongCat::WrongCat(WrongCat const & src) : WrongAnimal(src) {
 	std::cout << "WrongCat created" << std::endl;
 	*this = src;
 }

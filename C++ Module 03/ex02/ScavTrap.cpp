@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 18:16:51 by omanar            #+#    #+#             */
-/*   Updated: 2023/03/24 22:27:03 by omanar           ###   ########.fr       */
+/*   Updated: 2023/05/13 18:12:50 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
 	this->AttackDamage = 20;
 }
 
-ScavTrap::ScavTrap(ScavTrap const & src) {
+ScavTrap::ScavTrap(ScavTrap const & src) : ClapTrap(src.Name) {
 	std::cout << "ScavTrap Copy constructor called" << std::endl;
 	*this = src;
 }

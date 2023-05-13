@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 17:58:40 by omanar            #+#    #+#             */
-/*   Updated: 2023/04/13 18:29:19 by omanar           ###   ########.fr       */
+/*   Updated: 2023/05/13 18:19:49 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
 	this->AForm::execute(executor);
 	std::string filename = this->target + "_shrubbery";
-	std::ofstream file(filename);
+	std::ofstream file(filename.c_str());
 
 	if (!file.is_open())
 		std::cout << "Error: Can't open file" << std::endl;

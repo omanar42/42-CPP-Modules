@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 01:22:11 by omanar            #+#    #+#             */
-/*   Updated: 2023/02/20 02:22:44 by omanar           ###   ########.fr       */
+/*   Updated: 2023/05/13 18:16:37 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Cat::Cat(void) {
 	this->type = "Cat";
 }
 
-Cat::Cat(Cat const & src) {
+Cat::Cat(Cat const & src) : Animal(src) {
 	std::cout << "Cat created" << std::endl;
 	*this = src;
 }

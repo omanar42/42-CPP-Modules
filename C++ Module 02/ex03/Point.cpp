@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 19:36:32 by omanar            #+#    #+#             */
-/*   Updated: 2023/03/21 05:07:07 by omanar           ###   ########.fr       */
+/*   Updated: 2023/05/13 18:09:08 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ Fixed	Point::getY(void) const {
 }
 
 Point &	Point::operator=(Point const & src) {
+	(void)src;
 	return *this;
 }

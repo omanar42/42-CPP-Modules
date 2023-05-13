@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:47:44 by omanar            #+#    #+#             */
-/*   Updated: 2023/04/09 21:19:01 by omanar           ###   ########.fr       */
+/*   Updated: 2023/05/13 18:18:18 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Cure::Cure() : AMateria("cure") {}
 
-Cure::Cure(Cure const & src) {
+Cure::Cure(Cure const & src) : AMateria("cure") {
 	*this = src;
 }
 

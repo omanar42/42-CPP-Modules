@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 08:30:02 by omanar            #+#    #+#             */
-/*   Updated: 2023/03/14 19:40:16 by omanar           ###   ########.fr       */
+/*   Updated: 2023/05/13 18:01:46 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(int ac, char **av) {
 	std::string	s2 = av[3];
 	std::string	line;
 	std::string	content;
-	std::ifstream	infile(filename);
+	std::ifstream	infile(filename.c_str());
 
 	if (!infile.is_open()) {
 		std::cerr << "   | Error: Unable to open file " << filename << std::endl;
@@ -53,7 +53,7 @@ int	main(int ac, char **av) {
 	infile.close();
 
 	filename += ".replace";
-	std::ofstream	outfile(filename);
+	std::ofstream	outfile(filename.c_str());
 	if (!outfile.is_open()) {
 		std::cerr << "   | Error: Unable to open file " << filename << std::endl;
 		return (1);

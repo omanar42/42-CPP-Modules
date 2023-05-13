@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 01:19:17 by omanar            #+#    #+#             */
-/*   Updated: 2023/02/20 02:22:53 by omanar           ###   ########.fr       */
+/*   Updated: 2023/05/13 18:16:27 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Dog::Dog(void) {
 	this->type = "Dog";
 }
 
-Dog::Dog(Dog const & src) {
+Dog::Dog(Dog const & src) : Animal(src) {
 	std::cout << "Dog created" << std::endl;
 	*this = src;
 }

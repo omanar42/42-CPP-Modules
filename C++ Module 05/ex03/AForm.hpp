@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 07:54:00 by omanar            #+#    #+#             */
-/*   Updated: 2023/04/13 18:13:55 by omanar           ###   ########.fr       */
+/*   Updated: 2023/05/13 18:21:47 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include <iostream>
 #include <string>
+#include <stdlib.h>
 #include <exception>
 #include <fstream>
 #include "Bureaucrat.hpp"
