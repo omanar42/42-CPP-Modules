@@ -6,11 +6,13 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 16:16:33 by omanar            #+#    #+#             */
-/*   Updated: 2023/05/13 17:01:02 by omanar           ###   ########.fr       */
+/*   Updated: 2023/05/16 10:36:07 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
+
+Span::Span() : N() {}
 
 Span::Span(unsigned int n) : N(n) {}
 
@@ -49,10 +51,10 @@ int Span::shortestSpan() const {
 	return shortest;
 }
 
-int Span::longestSpan() const {
+long Span::longestSpan() const {
 	if (numbers.size() <= 1)
 		throw std::runtime_error("Span doesn't have enough numbers");
 	int max = *std::max_element(numbers.begin(), numbers.end());
 	int min = *std::min_element(numbers.begin(), numbers.end());
-	return max - min;
+	return static_cast<long>(max) - min;
 }

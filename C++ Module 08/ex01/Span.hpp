@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 16:16:36 by omanar            #+#    #+#             */
-/*   Updated: 2023/05/13 17:01:06 by omanar           ###   ########.fr       */
+/*   Updated: 2023/05/16 10:36:28 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class Span {
 		std::vector<int> numbers;
 
 	public:
+		Span();
 		Span(unsigned int n);
 		Span(const Span &other);
 		Span &operator=(const Span &other);
@@ -30,5 +31,12 @@ class Span {
 
 		void addNumber(int num);
 		int shortestSpan() const;
-		int longestSpan() const;
+		long longestSpan() const;
+
+		template <typename T>
+		void addNumbers(T begin, T end) {
+			if (numbers.size() + std::distance(begin, end) > N)
+				throw std::runtime_error("Span can't contain all these numbers");
+			numbers.insert(numbers.end(), begin, end);
+		}
 };
