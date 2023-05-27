@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 22:52:00 by omanar            #+#    #+#             */
-/*   Updated: 2023/05/26 23:42:41 by omanar           ###   ########.fr       */
+/*   Updated: 2023/05/27 11:08:18 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int processRPN(const std::string& rpn) {
 		else if (isValidNumber(token))
 			stack.push(atoi(token.c_str()));
 		else
-			throw std::runtime_error("Error: Invalid expression");
+			throw std::runtime_error("Error");
 	}
 
 	if (stack.size() != 1)
