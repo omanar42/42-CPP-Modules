@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:48:46 by omanar            #+#    #+#             */
-/*   Updated: 2023/05/29 23:43:12 by omanar           ###   ########.fr       */
+/*   Updated: 2023/05/30 10:56:20 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,15 @@
 #include <exception>
 #include <iomanip>
 
-void	isValid(std::string str);
-void	PmergeMeVec(std::vector<std::pair<unsigned int, unsigned int> > &container);
-void	PmergeMeLst(std::list<std::pair<unsigned int, unsigned int> > &container);
+class PmergeMe {
+	private:
+		PmergeMe();
+		PmergeMe(const PmergeMe& src);
+		PmergeMe& operator=(const PmergeMe& other);
+		~PmergeMe();
+
+	public:
+		static void	isValid(std::string str);
+		static void	PmergeMeVec(std::vector<std::pair<unsigned int, unsigned int> > &container);
+		static void	PmergeMeLst(std::list<std::pair<unsigned int, unsigned int> > &container);
+};

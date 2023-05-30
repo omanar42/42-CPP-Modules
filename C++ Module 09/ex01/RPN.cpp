@@ -6,38 +6,28 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 22:52:00 by omanar            #+#    #+#             */
-/*   Updated: 2023/05/27 11:08:18 by omanar           ###   ########.fr       */
+/*   Updated: 2023/05/30 10:33:38 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
-bool isOperator(const std::string& token) {
-	return (token == "+" || token == "-" || token == "*" || token == "/");
+RPN::RPN() {}
+
+RPN::RPN(const RPN& src) {
+	*this = src;
 }
 
-bool isValidNumber(const std::string& token) {
-	return (token.length() == 1 && token[0] >= '0' && token[0] <= '9');
-}
-
-int calculate(const int num1, const int num2, const char& op) {
-	switch (op) {
-		case '+':
-			return num1 + num2;
-		case '-':
-			return num1 - num2;
-		case '*':
-			return num1 * num2;
-		case '/':
-			if (num2 == 0)
-				throw std::runtime_error("Error: Division by zero");
-			return num1 / num2;
-		default:
-			throw std::runtime_error("Error: Invalid expression");
+RPN& RPN::operator=(const RPN& other) {
+	if (this != &other) {
+		*this = other;
 	}
+	return *this;
 }
 
-int processRPN(const std::string& rpn) {
+RPN::~RPN() {}
+
+RPN::RPN(const std::string& rpn) {
 	std::stack<int> stack;
 	std::istringstream iss(rpn);
 	std::string token;
@@ -65,5 +55,30 @@ int processRPN(const std::string& rpn) {
 	if (stack.size() != 1)
 		throw std::runtime_error("Error: Invalid expression");
 
-	return stack.top();
+	std::cout << stack.top() << std::endl;
+}
+
+bool RPN::isOperator(const std::string& token) {
+	return (token == "+" || token == "-" || token == "*" || token == "/");
+}
+
+bool RPN::isValidNumber(const std::string& token) {
+	return (token.length() == 1 && token[0] >= '0' && token[0] <= '9');
+}
+
+int RPN::calculate(const int num1, const int num2, const char& op) {
+	switch (op) {
+		case '+':
+			return num1 + num2;
+		case '-':
+			return num1 - num2;
+		case '*':
+			return num1 * num2;
+		case '/':
+			if (num2 == 0)
+				throw std::runtime_error("Error: Division by zero");
+			return num1 / num2;
+		default:
+			throw std::runtime_error("Error: Invalid expression");
+	}
 }

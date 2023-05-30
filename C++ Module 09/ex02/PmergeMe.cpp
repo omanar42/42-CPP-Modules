@@ -6,13 +6,26 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:48:44 by omanar            #+#    #+#             */
-/*   Updated: 2023/05/29 23:43:01 by omanar           ###   ########.fr       */
+/*   Updated: 2023/05/30 10:57:13 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-void	isValid(std::string str) {
+PmergeMe::PmergeMe() {}
+
+PmergeMe::PmergeMe(const PmergeMe& src) {
+	*this = src;
+}
+
+PmergeMe& PmergeMe::operator=(const PmergeMe& other) {
+	(void)other;
+	return *this;
+}
+
+PmergeMe::~PmergeMe() {}
+
+void	PmergeMe::isValid(std::string str) {
 	for (size_t i = 0; i < str.length(); i++) {
 		if (!isdigit(str[i]))
 			throw std::runtime_error("Error: Invalid input");
@@ -21,7 +34,7 @@ void	isValid(std::string str) {
 	}
 }
 
-void	PmergeMeVec(std::vector<std::pair<unsigned int, unsigned int> > &container) {
+void	PmergeMe::PmergeMeVec(std::vector<std::pair<unsigned int, unsigned int> > &container) {
 	
 	// swap pairs if first element is greater than second
 	for (std::vector<std::pair<unsigned int, unsigned int> >::iterator it = container.begin(); it != container.end(); it++) {
@@ -63,7 +76,7 @@ void	PmergeMeVec(std::vector<std::pair<unsigned int, unsigned int> > &container)
 	}
 }
 
-void	PmergeMeLst(std::list<std::pair<unsigned int, unsigned int> > &container)
+void	PmergeMe::PmergeMeLst(std::list<std::pair<unsigned int, unsigned int> > &container)
 {
 	// swap pairs if first element is greater than second
 	for (std::list<std::pair<unsigned int, unsigned int> >::iterator it = container.begin(); it != container.end(); it++) {

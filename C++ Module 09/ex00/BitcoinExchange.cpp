@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:57:06 by omanar            #+#    #+#             */
-/*   Updated: 2023/05/26 22:45:26 by omanar           ###   ########.fr       */
+/*   Updated: 2023/05/30 10:27:06 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void BitcoinExchange::loadData() {
 
 	std::string line;
 	while (std::getline(file, line)) {
+		if (line == "" || line == "\n" || line == "date,exchange_rate")
+			continue;
 		std::istringstream iss(line);
 		std::string date;
 		float price;
@@ -59,38 +61,35 @@ void	BitcoinExchange::handleData(std::string const & filename) {
 		throw std::runtime_error("Error: could not open file.");
 
 	std::string line;
-	int lineNum = 1;
 	while (std::getline(file, line)) {
-		if (lineNum > 1) {
-			std::istringstream iss(line);
-			std::string date;
-			float value;
-			char separator;
+		if (isHeader(line))
+			continue;
+		std::istringstream iss(line);
+		std::string date;
+		float value;
+		char separator;
 
-			try {
-				if (!(iss >> date >> separator >> value) || separator != '|'
-					|| !this->isValidValue(value))
-					throw std::runtime_error("Error: bad input => " + line);
-			}
-			catch(const std::exception& e) {
-				std::cerr << e.what() << '\n';
-				lineNum++;
-				continue;
-			}
-
-			std::map<std::string, float>::iterator it = this->data.find(date);
-			if (it != this->data.end()) {
-				std::cout << date << " => " << value;
-				std::cout << " = " << value * it->second << std::endl;
-			}
-			if (it == this->data.end()) {
-				it = this->data.upper_bound(date);
-				it--;
-				std::cout << date << " => " << value;
-				std::cout << " = " << value * it->second << std::endl;
-			}
+		try {
+			if (!(iss >> date >> separator >> value) || separator != '|'
+				|| !this->isValidValue(value))
+				throw std::runtime_error("Error: bad input => " + line);
 		}
-		lineNum++;
+		catch(const std::exception& e) {
+			std::cerr << e.what() << '\n';
+			continue;
+		}
+
+		std::map<std::string, float>::iterator it = this->data.find(date);
+		if (it != this->data.end()) {
+			std::cout << date << " => " << value;
+			std::cout << " = " << value * it->second << std::endl;
+		}
+		if (it == this->data.end()) {
+			it = this->data.upper_bound(date);
+			it--;
+			std::cout << date << " => " << value;
+			std::cout << " = " << value * it->second << std::endl;
+		}
 	}
 
 	file.close();
@@ -121,4 +120,17 @@ bool BitcoinExchange::isValidValue(float value) const {
 	else if (value > 1000)
 		throw std::runtime_error("Error: too large a number.");
 	return true;
+}
+
+bool BitcoinExchange::isHeader(const std::string& line) const {
+	std::string date;
+	std::string value;
+	char separator;
+
+	std::istringstream iss(line);
+	iss >> date >> separator >> value;
+
+	if (date == "date" && value == "value" && separator == '|')
+		return true;
+	return false;
 }

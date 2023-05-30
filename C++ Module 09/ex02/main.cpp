@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:48:41 by omanar            #+#    #+#             */
-/*   Updated: 2023/05/29 23:49:24 by omanar           ###   ########.fr       */
+/*   Updated: 2023/05/30 10:56:41 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ int	main(int ac, char **av) {
 		
 
 		for (int i = 1; i < ac; i+=2) {
-			isValid(av[i]);
+			PmergeMe::isValid(av[i]);
 			if (i + 1 == ac) {
 				vec.push_back(std::make_pair(atoi(av[i]), atoi("0")));
 				lst.push_back(std::make_pair(atoi(av[i]), atoi("0")));
 				break;
 			}
-			isValid(av[i + 1]);
+			PmergeMe::isValid(av[i + 1]);
 			vec.push_back(std::make_pair(atoi(av[i]), atoi(av[i + 1])));
 			lst.push_back(std::make_pair(atoi(av[i]), atoi(av[i + 1])));
 		}
@@ -43,7 +43,7 @@ int	main(int ac, char **av) {
 
 		clock_t start, end;
 		start = clock();
-		PmergeMeVec(vec);
+		PmergeMe::PmergeMeVec(vec);
 		end = clock();
 
 		std::cout << "After: ";
@@ -60,7 +60,7 @@ int	main(int ac, char **av) {
 			<< std::fixed << std::setprecision(5) << timeUsed << " us" << std::endl;
 
 		start = clock();
-		PmergeMeLst(lst);
+		PmergeMe::PmergeMeLst(lst);
 		end = clock();
 
 		timeUsed = ((double)(end - start)) * 1000000 / CLOCKS_PER_SEC;
