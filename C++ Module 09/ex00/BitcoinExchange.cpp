@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:57:06 by omanar            #+#    #+#             */
-/*   Updated: 2023/05/30 10:27:06 by omanar           ###   ########.fr       */
+/*   Updated: 2023/05/30 11:37:23 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	BitcoinExchange::handleData(std::string const & filename) {
 
 		try {
 			if (!(iss >> date >> separator >> value) || separator != '|'
-				|| !this->isValidValue(value))
+				|| !this->isValidValue(value) || !this->isValidDate(date) || iss.peek() != EOF)
 				throw std::runtime_error("Error: bad input => " + line);
 		}
 		catch(const std::exception& e) {
@@ -86,7 +86,8 @@ void	BitcoinExchange::handleData(std::string const & filename) {
 		}
 		if (it == this->data.end()) {
 			it = this->data.upper_bound(date);
-			it--;
+			if (it != this->data.begin())
+				it--;
 			std::cout << date << " => " << value;
 			std::cout << " = " << value * it->second << std::endl;
 		}
@@ -104,13 +105,25 @@ bool BitcoinExchange::isValidDate(const std::string& date) const {
 	for (size_t i = 0; i < format.length(); ++i) {
 		if (format[i] == 'Y' && !isdigit(date[i]))
 			throw std::runtime_error("Error: bad input => " + date);
-		else if (format[i] == 'M' && !(isdigit(date[i]) || date[i] == '-'))
+		else if (format[i] == 'M' && !(isdigit(date[i])))
 			throw std::runtime_error("Error: bad input => " + date);
-		else if (format[i] == 'D' && !(isdigit(date[i]) || date[i] == '-'))
+		else if (format[i] == 'D' && !(isdigit(date[i])))
 			throw std::runtime_error("Error: bad input => " + date);
-		else if (format[i] != date[i])
+		else if (format[i] == '-' && date[i] != '-')
 			throw std::runtime_error("Error: bad input => " + date);
 	}
+
+	int year = atoi(date.substr(0, 4).c_str());
+	int month = atoi(date.substr(5, 2).c_str());
+	int day = atoi(date.substr(8, 2).c_str());
+
+	if (year > 2023)
+		throw std::runtime_error("Error: bad input => " + date);
+	if (month < 1 || month > 12)
+		throw std::runtime_error("Error: bad input => " + date);
+	if (day < 1 || day > 31)
+		throw std::runtime_error("Error: bad input => " + date);
+
 	return true;
 }
 
