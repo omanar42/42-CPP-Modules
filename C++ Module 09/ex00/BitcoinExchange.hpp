@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:57:01 by omanar            #+#    #+#             */
-/*   Updated: 2023/05/30 10:22:15 by omanar           ###   ########.fr       */
+/*   Updated: 2023/05/31 16:51:56 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ class BitcoinExchange {
 		void handleData(std::string const & filename);
 
 		bool isValidDate(std::string const & date) const;
-		bool isValidValue(float value) const;
-		bool isHeader(std::string const & line) const;
+		bool isValidValue(std::string const & value) const;
+		bool isHeader(std::string const & line, int index) const;
 };
