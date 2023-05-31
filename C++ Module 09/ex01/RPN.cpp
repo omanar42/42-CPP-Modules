@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 22:52:00 by omanar            #+#    #+#             */
-/*   Updated: 2023/05/30 10:33:38 by omanar           ###   ########.fr       */
+/*   Updated: 2023/05/31 17:02:02 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ RPN::~RPN() {}
 RPN::RPN(const std::string& rpn) {
 	std::stack<int> stack;
 	std::istringstream iss(rpn);
-	std::string token;
+	char token;
 
 	while (iss >> token) {
 		if (isOperator(token)) {
@@ -43,11 +43,11 @@ RPN::RPN(const std::string& rpn) {
 			int num1 = stack.top();
 			stack.pop();
 			
-			int result = calculate(num1, num2, token[0]);
+			int result = calculate(num1, num2, token);
 			stack.push(result);
 		}
 		else if (isValidNumber(token))
-			stack.push(atoi(token.c_str()));
+			stack.push(atoi(&token));
 		else
 			throw std::runtime_error("Error");
 	}
@@ -58,12 +58,12 @@ RPN::RPN(const std::string& rpn) {
 	std::cout << stack.top() << std::endl;
 }
 
-bool RPN::isOperator(const std::string& token) {
-	return (token == "+" || token == "-" || token == "*" || token == "/");
+bool RPN::isOperator(const char &token) {
+	return (token == '+' || token == '-' || token == '*' || token == '/');
 }
 
-bool RPN::isValidNumber(const std::string& token) {
-	return (token.length() == 1 && token[0] >= '0' && token[0] <= '9');
+bool RPN::isValidNumber(const char &token) {
+	return (token >= '0' && token <= '9');
 }
 
 int RPN::calculate(const int num1, const int num2, const char& op) {

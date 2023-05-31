@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 22:52:02 by omanar            #+#    #+#             */
-/*   Updated: 2023/05/30 10:34:39 by omanar           ###   ########.fr       */
+/*   Updated: 2023/05/31 17:01:28 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ class RPN {
 
 		int		processRPN(const std::string& expression);
 		int		calculate(const int num1, const int num2, const char& op);
-		bool	isOperator(const std::string& token);
-		bool	isValidNumber(const std::string& token);
+		bool	isOperator(const char &token);
+		bool	isValidNumber(const char &token);
 };
