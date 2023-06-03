@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:57:06 by omanar            #+#    #+#             */
-/*   Updated: 2023/06/03 12:44:50 by omanar           ###   ########.fr       */
+/*   Updated: 2023/06/03 17:30:37 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,7 @@ bool BitcoinExchange::isValidDate(const std::string& date) const {
 
 bool BitcoinExchange::isValidValue(std::string const & value) const {
 	float valueFloat = atof(value.c_str());
+	int count = 0;
 
 	if (valueFloat < 0)
 		throw std::runtime_error("Error: not a positive number.");
@@ -142,9 +143,13 @@ bool BitcoinExchange::isValidValue(std::string const & value) const {
 	for (size_t i = 0; i < value.length(); ++i) {
 		if (!isdigit(value[i]) && value[i] != '.')
 			throw std::runtime_error("Error: bad input");
-		if (value[i] == '.' && (i == value.length() - 1 || i == 0))
+		if (value[i] == '.' && count++ == 1)
 			throw std::runtime_error("Error: bad input");
 	}
+
+	if (value[0] == '.' || value[value.length() - 1] == '.')
+		throw std::runtime_error("Error: bad input");
+
 	return true;
 }
 
