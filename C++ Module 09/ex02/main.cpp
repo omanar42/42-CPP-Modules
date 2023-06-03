@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:48:41 by omanar            #+#    #+#             */
-/*   Updated: 2023/05/31 19:28:29 by omanar           ###   ########.fr       */
+/*   Updated: 2023/06/03 18:19:54 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,10 @@ int main(int ac, char **av)
 				std::cout << vec[i] << std::endl;
 		}
 
-		clock_t start, end;
-		start = clock();
+		clock_t start = clock();
 		PmergeMe::process(vec);
-		end = clock();
-		double diff = static_cast<double>(end - start) * 1000000 / CLOCKS_PER_SEC;
+		clock_t end = clock();
+		double diff = static_cast<double>(end - start) / (CLOCKS_PER_SEC / 1000000.0);
 
 		std::cout << "After:  ";
 		for (std::size_t i = 0; i < vec.size(); i++) {
@@ -57,7 +56,7 @@ int main(int ac, char **av)
 		start = clock();
 		PmergeMe::process(deq);
 		end = clock();
-		diff = static_cast<double>(end - start) * 1000000 / CLOCKS_PER_SEC;
+		diff = static_cast<double>(end - start) / (CLOCKS_PER_SEC / 1000000);
 
 		std::cout << "Time to process a range of " << deq.size() << "  elements with std::deque : "
 			<< std::fixed << std::setprecision(5) << diff << " us" << std::endl;
