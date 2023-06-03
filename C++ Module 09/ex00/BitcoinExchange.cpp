@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:57:06 by omanar            #+#    #+#             */
-/*   Updated: 2023/05/31 16:56:43 by omanar           ###   ########.fr       */
+/*   Updated: 2023/06/03 12:38:26 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,7 @@ bool BitcoinExchange::isValidValue(std::string const & value) const {
 	for (size_t i = 0; i < value.length(); ++i) {
 		if (!isdigit(value[i]) && value[i] != '.')
 			throw std::runtime_error("Error: bad input");
-		if (value[i] == '.' && i == value.length() - 1)
+		if (value[i] == '.' && (i == value.length() - 1 || i == 0))
 			throw std::runtime_error("Error: bad input");
 	}
 	return true;
