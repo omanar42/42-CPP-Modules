@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:57:06 by omanar            #+#    #+#             */
-/*   Updated: 2023/06/03 12:38:26 by omanar           ###   ########.fr       */
+/*   Updated: 2023/06/03 12:44:50 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	BitcoinExchange::handleData(std::string const & filename) {
 			continue;
 		}
 
-		value = std::stof(valueStr);
+		value = std::strtof(valueStr.c_str(), NULL);
 		std::map<std::string, float>::iterator it = this->data.find(date);
 		if (it != this->data.end()) {
 			std::cout << date << " => " << value;
